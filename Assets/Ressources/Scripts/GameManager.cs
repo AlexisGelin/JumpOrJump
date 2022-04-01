@@ -9,16 +9,10 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (isGameOver)
-        {
-            Debug.Log("die");
-        }
+
     }
     public static void GameOver()
     {
-
         isGameOver = true;
-        Debug.Log("End");
-        //Show UI FIN
     }
 }

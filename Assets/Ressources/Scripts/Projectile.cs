@@ -7,6 +7,9 @@ public class Projectile : MonoBehaviour
     public float speed = 6f;
     private Rigidbody2D rb;
 
+    [SerializeField]
+    private GameObject moneyPrefab;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -26,6 +29,8 @@ public class Projectile : MonoBehaviour
             playerScr.Die();
             GameManager.GameOver();
         }
+        GameObject money = Instantiate(moneyPrefab);
+        money.transform.position = gameObject.transform.position;
         Destroy(gameObject);
     }
 }

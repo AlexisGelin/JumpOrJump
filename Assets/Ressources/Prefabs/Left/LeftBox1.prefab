@@ -98,6 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
+  moneyPrefab: {fileID: 5583313817307808216, guid: 6ac06a4ba11bba04eb81dc08de9bede0, type: 3}
 --- !u!50 &6805744738916807988
 Rigidbody2D:
   serializedVersion: 4

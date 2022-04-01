@@ -23,7 +23,7 @@ public class UIManager : MonoBehaviour
             PlayUI.SetActive(false);
             GameOverMenu.SetActive(true);
         }
-        if (GameManager.isGameStart)
+        if (GameManager.isGameStart && !GameManager.isGameOver)
         {
             StartMenu.SetActive(false);
             PlayUI.SetActive(true);

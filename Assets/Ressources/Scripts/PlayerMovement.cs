@@ -22,25 +22,9 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameManager.isGameOver)
-        {
-            return;
-        }
-        if (Input.GetButtonDown("Jump") && nbrJump < maxJump) {
-            GameManager.isGameStart = true;
-            rb.AddForce(new Vector2(0, JumpForce), ForceMode2D.Impulse);
-            _animator.SetBool("Jump", true);
-            nbrJump +=1;
-            ScoreScript.addScore(nbrJump);
-            if (nbrJump == 2)
-            {
-                _animator.SetBool("DoubleJump", true);
-            }
-        }
-
         if (Mathf.Abs(rb.velocity.y) < 0.001f)
         {
-            nbrJump =0; 
+            nbrJump = 0;
             _animator.SetBool("isGrounded", true);
             _animator.SetBool("Jump", false);
             _animator.SetBool("DoubleJump", false);
@@ -48,6 +32,26 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             _animator.SetBool("isGrounded", false);
+        }
+    }
+
+    public void Jump()
+    {
+        if (GameManager.isGameOver)
+        {
+            return;
+        }
+        if (nbrJump < maxJump)
+        {
+            GameManager.isGameStart = true;
+            rb.AddForce(new Vector2(0, JumpForce), ForceMode2D.Impulse);
+            _animator.SetBool("Jump", true);
+            nbrJump += 1;
+            ScoreScript.addScore(nbrJump);
+            if (nbrJump == 2)
+            {
+                _animator.SetBool("DoubleJump", true);
+            }
         }
     }
 
