@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
 {
     public static bool isGameOver = false;
     public static bool isGameStart = false;
+    public static float money = 0;
 
     private void Update()
     {

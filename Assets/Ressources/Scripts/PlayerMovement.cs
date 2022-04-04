@@ -60,5 +60,9 @@ public class PlayerMovement : MonoBehaviour
         _animator.SetBool("Jump", false);
         _animator.SetBool("DoubleJump", false);
         _animator.SetBool("Live", false);
+        if (ScoreScript.maxScore < ScoreScript.score)
+        {
+            ScoreScript.maxScore = ScoreScript.score;
+        }
     }
 }

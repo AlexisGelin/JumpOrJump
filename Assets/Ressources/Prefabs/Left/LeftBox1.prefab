@@ -73,7 +73,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: f12bf89a4a71a954eb5f008fea00c7c3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -98,6 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
+  rotationSpeed: -80
   moneyPrefab: {fileID: 5583313817307808216, guid: 6ac06a4ba11bba04eb81dc08de9bede0, type: 3}
 --- !u!50 &6805744738916807988
 Rigidbody2D:

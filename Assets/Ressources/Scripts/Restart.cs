@@ -8,15 +8,13 @@ public class Restart : MonoBehaviour
         SceneManager.LoadScene("Main");
         GameManager.isGameOver = false;
         GameManager.isGameStart = false;
-        if (ScoreScript.maxScore < ScoreScript.score)
-        {
-            ScoreScript.maxScore = ScoreScript.score;
-        }
         ScoreScript.score = 0;
     }
 
-    public void ExitGame()
+    public void PubReplay()
     {
-        Application.Quit();
+        SceneManager.LoadScene("Main");
+        GameManager.isGameOver = false;
+        GameManager.isGameStart = true;
     }
 }

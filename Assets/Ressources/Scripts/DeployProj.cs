@@ -28,13 +28,13 @@ public class DeployProj : MonoBehaviour
         GameObject proj = Instantiate(projectilePrefab);
         if (right)
         {
-            pos = new Vector2(spawnPosition.x + distance, Random.Range(0, spawnPosition.y * 2));
+            pos = new Vector2(spawnPosition.x + distance, Random.Range(1, spawnPosition.y * 2));
             proj.transform.position = pos;
             warn.transform.position = pos - new Vector2(distance, 0);
         }
         else
         {
-            pos = new Vector2(spawnPosition.x - distance, Random.Range(0, spawnPosition.y * 2));
+            pos = new Vector2(spawnPosition.x - distance, Random.Range(1, spawnPosition.y * 2));
             proj.transform.position = pos;
             warn.transform.position = pos + new Vector2(distance, 0);  
         }
@@ -45,7 +45,13 @@ public class DeployProj : MonoBehaviour
     {
         while(true)
         {
-            yield return new WaitForSeconds(Random.Range(respawnTime,respawnTime+1f));
+            float difficultySpawnProj = 1f -  ScoreScript.score / 100;
+            if (difficultySpawnProj <= respawnTime + 0.2f)
+            {
+                difficultySpawnProj = respawnTime + 0.2f;
+            }
+
+            yield return new WaitForSeconds(Random.Range(respawnTime,respawnTime+ difficultySpawnProj));
             SpawnProjectile();
         }
     }

@@ -5,6 +5,8 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     public float speed = 6f;
+    public float rotationSpeed = 2f;
+
     private Rigidbody2D rb;
 
     [SerializeField]
@@ -12,8 +14,16 @@ public class Projectile : MonoBehaviour
 
     void Start()
     {
+        float difficultySpeedMultiplier = ScoreScript.score / 100 + 1;
+        if (difficultySpeedMultiplier >= 2)
+        {
+            difficultySpeedMultiplier = 2;
+        }
+
         rb = GetComponent<Rigidbody2D>();
-        rb.velocity = new Vector2(speed, 0);
+        rb.velocity = new Vector2(speed * difficultySpeedMultiplier, 0);
+        rotationSpeed = Random.Range(rotationSpeed * difficultySpeedMultiplier, rotationSpeed *2);
+        rb.angularVelocity = rotationSpeed;
     }
     private void OnBecameInvisible()
     {

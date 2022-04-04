@@ -8,6 +8,9 @@ using TMPro;
 public class ScoreScript : MonoBehaviour
 {
     public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI scoreTextGameOver;
+    public TextMeshProUGUI scoreTextMaxScore;
+
     public static int score = 0;
     public static int maxScore = 0;
 
@@ -15,9 +18,12 @@ public class ScoreScript : MonoBehaviour
     {
         scoreText.text = "" + score;
     }
+
     private void Update()
     {
         scoreText.text = "" + score;
+        scoreTextGameOver.text = "" + score;
+        scoreTextMaxScore.text = "Meilleur Score : " + maxScore;
     }
 
     public static void addScore(int amount)
