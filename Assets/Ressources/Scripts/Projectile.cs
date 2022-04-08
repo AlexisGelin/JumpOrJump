@@ -7,6 +7,7 @@ public class Projectile : MonoBehaviour
     public float speed = 6f;
     public float rotationSpeed = 2f;
 
+
     private Rigidbody2D rb;
 
     [SerializeField]
@@ -42,5 +43,6 @@ public class Projectile : MonoBehaviour
         GameObject money = Instantiate(moneyPrefab);
         money.transform.position = gameObject.transform.position;
         Destroy(gameObject);
+
     }
 }

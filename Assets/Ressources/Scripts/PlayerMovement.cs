@@ -13,6 +13,12 @@ public class PlayerMovement : MonoBehaviour
 
     public Animator _animator;
 
+    public AudioClip[] jumpSoundArray;
+    private AudioClip jumpSound;
+
+    public AudioSource audioSource;
+
+    public AudioClip hitSong;
     // Start is called before the first frame update
     void Start()
     {
@@ -43,6 +49,10 @@ public class PlayerMovement : MonoBehaviour
         }
         if (nbrJump < maxJump)
         {
+            int choice = Random.Range(0, 3);
+            jumpSound = jumpSoundArray[choice];
+            audioSource.clip = jumpSound;
+            audioSource.Play();
             GameManager.isGameStart = true;
             rb.AddForce(new Vector2(0, JumpForce), ForceMode2D.Impulse);
             _animator.SetBool("Jump", true);
@@ -57,9 +67,14 @@ public class PlayerMovement : MonoBehaviour
 
     public void Die()
     {
+        audioSource.clip = hitSong;
+        audioSource.Play();
         _animator.SetBool("Jump", false);
         _animator.SetBool("DoubleJump", false);
         _animator.SetBool("Live", false);
+
+        BoxCollider2D boxCollider2D = GetComponent<BoxCollider2D>();
+        boxCollider2D.size = new Vector2(0.6f,0.12f);
         if (ScoreScript.maxScore < ScoreScript.score)
         {
             ScoreScript.maxScore = ScoreScript.score;

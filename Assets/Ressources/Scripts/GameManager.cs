@@ -6,11 +6,11 @@ public class GameManager : MonoBehaviour
 {
     public static bool isGameOver = false;
     public static bool isGameStart = false;
-    public static float money = 0;
+    public static int money;
 
-    private void Update()
+    private void Start()
     {
-
+        Screen.orientation = ScreenOrientation.Portrait;
     }
     public static void GameOver()
     {

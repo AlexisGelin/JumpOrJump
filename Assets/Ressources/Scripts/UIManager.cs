@@ -23,6 +23,7 @@ public class UIManager : MonoBehaviour
         StartMenu.SetActive(true);
         PlayUI.SetActive(false);
         GameOverMenu.SetActive(false);
+        moneyGO.SetActive(true);
     }
 
     private void Update()
@@ -32,25 +33,28 @@ public class UIManager : MonoBehaviour
             PlayUI.SetActive(false);
             GameOverMenu.SetActive(true);
             moneyGO.SetActive(false);
-        }
-        if (GameManager.isGameStart && !GameManager.isGameOver)
+        } 
+        if (GameManager.isGameStart && GameManager.isGameOver == false)
         {
             StartMenu.SetActive(false);
             GameOverMenu.SetActive(false);
             PlayUI.SetActive(true);
+            moneyGO.SetActive(true);
         }
-        moneyText.text = GameManager.money.ToString();
+        int money = PlayerPrefs.GetInt("Money");
+        moneyText.text = money.ToString();
     }
 
-    public void OpenSettings()
+    public void SetActive(GameObject obj)
     {
-        SettingsMenu.SetActive(true);
+        obj.SetActive(true);
     }
 
-    public void CloseSettings()
+    public void SetUnactive(GameObject obj)
     {
-        SettingsMenu.SetActive(false);
+        obj.SetActive(false);
     }
+
 
     public void OpenPause()
     {

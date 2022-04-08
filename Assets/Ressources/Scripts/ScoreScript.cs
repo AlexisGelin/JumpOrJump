@@ -17,6 +17,7 @@ public class ScoreScript : MonoBehaviour
     void Start()
     {
         scoreText.text = "" + score;
+        maxScore = PlayerPrefs.GetInt("MaxScore");
     }
 
     private void Update()
@@ -24,6 +25,8 @@ public class ScoreScript : MonoBehaviour
         scoreText.text = "" + score;
         scoreTextGameOver.text = "" + score;
         scoreTextMaxScore.text = "Meilleur Score : " + maxScore;
+        PlayerPrefs.SetInt("Score", score);
+        PlayerPrefs.SetInt("MaxScore",maxScore);
     }
 
     public static void addScore(int amount)
