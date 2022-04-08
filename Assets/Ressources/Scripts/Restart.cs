@@ -20,6 +20,7 @@ public class Restart : MonoBehaviour
         BoxCollider2D boxCollider2D = player.GetComponent<BoxCollider2D>();
         UIManager uimanager = GetComponent<UIManager>();
         uimanager.ClosePause();
+        PlayerTimeGrounded._time = 10;
         player.transform.position += new Vector3(0, 1, 0); 
         boxCollider2D.size = new Vector2(0.6f, 0.9f);
         GameManager.isGameOver = false;

@@ -25,20 +25,27 @@ public class DeployProj : MonoBehaviour
         }
         float distance = 1f;
         GameObject warn = Instantiate(warningPrefab);
-        GameObject proj = Instantiate(projectilePrefab);
+
         if (right)
         {
-            pos = new Vector2(spawnPosition.x + distance, Random.Range(1, (spawnPosition.y * 2) - 1));
-            proj.transform.position = pos;
-            warn.transform.position = pos - new Vector2(distance, 0); // StartCoroutine pour delay l'apparition de la box
+            pos = new Vector2(spawnPosition.x, Random.Range(1, (spawnPosition.y * 2) - 1));
+            warn.transform.position = pos; // StartCoroutine pour delay l'apparition de la box
+            StartCoroutine(TheProj(pos));
         }
         else
         {
-            pos = new Vector2(spawnPosition.x - distance, Random.Range(1, (spawnPosition.y * 2) - 1));
-            proj.transform.position = pos;
-            warn.transform.position = pos + new Vector2(distance, 0); // StartCoroutine pour delay l'apparition de la box
+            pos = new Vector2(spawnPosition.x, Random.Range(1, (spawnPosition.y * 2) - 1));
+            warn.transform.position = pos; // StartCoroutine pour delay l'apparition de la box
+            StartCoroutine(TheProj(pos));
         }
             
+    }
+
+    IEnumerator TheProj(Vector2 pos)
+    {
+        yield return new WaitForSeconds(1f);
+        GameObject proj = Instantiate(projectilePrefab);
+        proj.transform.position = pos;
     }
 
     IEnumerator projWave()

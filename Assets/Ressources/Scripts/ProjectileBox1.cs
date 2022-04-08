@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Projectile : MonoBehaviour
+public class ProjectileBox1 : MonoBehaviour
 {
     public float speed = 6f;
     public float rotationSpeed = 2f;

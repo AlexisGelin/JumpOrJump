@@ -8,7 +8,8 @@ public class PlayerTimeGrounded : MonoBehaviour
     public TextMeshProUGUI cooldownJump;
     public Animator _animator;
 
-    private float _time = 10;
+    [SerializeField]
+    public static float _time = 10;
     private bool ready = true;
 
     void Update()
