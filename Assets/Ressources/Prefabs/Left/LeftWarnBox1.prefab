@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1679811335969074884}
   - component: {fileID: 6743978165005931598}
-  - component: {fileID: -7315896197880085295}
   m_Layer: 0
   m_Name: LeftWarnBox1
   m_TagString: Untagged
@@ -71,7 +70,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: 5cbe83b23d19038498302f3479126e1d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -83,16 +82,3 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &-7315896197880085295
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7468389007744995364}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06b4739a34db4d54c945e5f5bbd71bac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  time: 1

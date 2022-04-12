@@ -2886,7 +2886,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 449696896, guid: aa8854e55afc6b04b813b1c8793a3185, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 449696896, guid: aa8854e55afc6b04b813b1c8793a3185, type: 3}
       propertyPath: cooldownJump
@@ -3287,8 +3287,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   right: 1
-  warningPrefab: {fileID: 8068895442568553992, guid: ae456b19ecb4da04d8728b7b4e184250, type: 3}
-  projectilePrefab: {fileID: 2161696506898016648, guid: e1f8dec996a8a924487d9ac80fa02222, type: 3}
+  warningPrefab:
+  - {fileID: 8068895442568553992, guid: ae456b19ecb4da04d8728b7b4e184250, type: 3}
+  - {fileID: 628501529935155543, guid: db41c957a47f1414ea03cfda71a51d1f, type: 3}
+  - {fileID: 5456036350043527736, guid: 6b8fb0e93cac29b428a511c9600fe21f, type: 3}
+  projectilePrefab:
+  - {fileID: 2161696506898016648, guid: e1f8dec996a8a924487d9ac80fa02222, type: 3}
+  - {fileID: 3790224502381422831, guid: 4b2ef09889198d247a0f0637ee3d04dc, type: 3}
+  - {fileID: 2971854327889410473, guid: fa160889d9330c540b419aa61177a944, type: 3}
   respawnTime: 1
 --- !u!222 &409047005
 CanvasRenderer:
@@ -5378,7 +5384,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: -4.0000305, y: 0}
+  m_AnchoredPosition: {x: -4, y: 0}
   m_SizeDelta: {x: -22.000038, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &693195293
@@ -15555,7 +15561,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: Le but est de survivre le plus longtemps possible, en prenant soin d'eviter
-    les boites qui apparaissent sur les cotes de l'ecran.
+    les projectiles qui apparaissent sur les cotes de l'ecran.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
   m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
@@ -15682,8 +15688,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   right: 0
-  warningPrefab: {fileID: 7468389007744995364, guid: 0538808507f79ab47be8a175ac51cd68, type: 3}
-  projectilePrefab: {fileID: 3790224502381422831, guid: 7539b4fc50eb207498a33d2819d021e0, type: 3}
+  warningPrefab:
+  - {fileID: 7468389007744995364, guid: 0538808507f79ab47be8a175ac51cd68, type: 3}
+  - {fileID: 5842752728850839328, guid: ddfd9f2fa775c8d478c1d5d9c08f1ff4, type: 3}
+  - {fileID: 3444284945202073561, guid: 536c54032d0dc3845bd8d14a6a78a3f1, type: 3}
+  projectilePrefab:
+  - {fileID: 6805744738916808138, guid: 637645441a262d74b975c2aa8c0ae93f, type: 3}
+  - {fileID: 3790224502381422831, guid: 7539b4fc50eb207498a33d2819d021e0, type: 3}
+  - {fileID: 2971854327889410473, guid: 7353bb3f123cd3c47a3a032232dfb4b5, type: 3}
   respawnTime: 1
 --- !u!222 &2037905967
 CanvasRenderer:

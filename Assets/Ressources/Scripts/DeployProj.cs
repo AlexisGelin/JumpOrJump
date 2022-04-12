@@ -6,59 +6,66 @@ public class DeployProj : MonoBehaviour
 {
     [SerializeField]
     private bool right = false;
-    public GameObject warningPrefab;
-    public GameObject projectilePrefab;
-    public float respawnTime = 0.2f;
+    public GameObject[] warningPrefab;
+    public GameObject[] projectilePrefab;
+    public float respawnTime = 20f;
     private Vector2 spawnPosition;
     private Vector2 pos;
+
+    private float timingSpawn;
+    
 
     void Start()
     {
         spawnPosition = new Vector2(gameObject.transform.position.x, gameObject.transform.position.y);
         StartCoroutine(projWave());
+
+        float difficultySpawnProj = 1f - ScoreScript.score / 100;
+        if (difficultySpawnProj <= respawnTime + 0.2f)
+        {
+            difficultySpawnProj = respawnTime + 0.2f;
+        }
+        timingSpawn = Random.Range(respawnTime, respawnTime + difficultySpawnProj);
     }
 
     private void SpawnProjectile()
     {
-        if (!GameManager.isGameStart || GameManager.isGameOver){
+        int choice = Random.Range(0, projectilePrefab.Length);
+        if (!GameManager.isGameStart || GameManager.isGameOver)
+        {
             return;
         }
-        float distance = 1f;
-        GameObject warn = Instantiate(warningPrefab);
+
+        GameObject warn = Instantiate(warningPrefab[choice]);
 
         if (right)
         {
             pos = new Vector2(spawnPosition.x, Random.Range(1, (spawnPosition.y * 2) - 1));
             warn.transform.position = pos; // StartCoroutine pour delay l'apparition de la box
-            StartCoroutine(TheProj(pos));
+            StartCoroutine(TheProj(pos,choice));
         }
         else
         {
             pos = new Vector2(spawnPosition.x, Random.Range(1, (spawnPosition.y * 2) - 1));
             warn.transform.position = pos; // StartCoroutine pour delay l'apparition de la box
-            StartCoroutine(TheProj(pos));
+            StartCoroutine(TheProj(pos,choice));
         }
-            
+        Destroy(warn, timingSpawn);
+
     }
 
-    IEnumerator TheProj(Vector2 pos)
+    IEnumerator TheProj(Vector2 pos,int choice)
     {
         yield return new WaitForSeconds(1f);
-        GameObject proj = Instantiate(projectilePrefab);
+        GameObject proj = Instantiate(projectilePrefab[choice]);
         proj.transform.position = pos;
     }
 
     IEnumerator projWave()
     {
-        while(true)
+        while (true)
         {
-            float difficultySpawnProj = 1f -  ScoreScript.score / 100;
-            if (difficultySpawnProj <= respawnTime + 0.2f)
-            {
-                difficultySpawnProj = respawnTime + 0.2f;
-            }
-
-            yield return new WaitForSeconds(Random.Range(respawnTime,respawnTime+ difficultySpawnProj));
+            yield return new WaitForSeconds(timingSpawn);
             SpawnProjectile();
         }
     }
