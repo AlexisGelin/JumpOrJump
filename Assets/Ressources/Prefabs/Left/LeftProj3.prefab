@@ -148,5 +148,5 @@ MonoBehaviour:
   rotationSpeed: 80
   boxMovement: 3
   frequency: 3
-  force: 2
+  force: 2.5
   moneyPrefab: {fileID: 5583313817307808216, guid: 6ac06a4ba11bba04eb81dc08de9bede0, type: 3}

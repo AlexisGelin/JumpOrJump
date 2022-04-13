@@ -1,11 +1,14 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Advertisements;
 
 public class Restart : MonoBehaviour
 {
     public GameObject btnPub;
     public GameObject player;
     private Animator playerAnim;
+
+    private string gameIDandroid = "4707015";
 
     public void RestartGame()
     {
