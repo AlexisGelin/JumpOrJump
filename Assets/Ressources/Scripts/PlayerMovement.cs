@@ -19,15 +19,24 @@ public class PlayerMovement : MonoBehaviour
     public AudioSource audioSource;
 
     public AudioClip hitSong;
+
+    [SerializeField]
+    private RuntimeAnimatorController animBiker;
+
+    [SerializeField]
+    private RuntimeAnimatorController animPunk;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        loadSkin();
     }
 
     // Update is called once per frame
     void Update()
     {
+        
+
         if (Mathf.Abs(rb.velocity.y) < 0.001f)
         {
             nbrJump = 0;
@@ -78,6 +87,21 @@ public class PlayerMovement : MonoBehaviour
         if (ScoreScript.maxScore < ScoreScript.score)
         {
             ScoreScript.maxScore = ScoreScript.score;
+        }
+    }
+
+    public void loadSkin()
+    {
+        Animator animPlayer = GetComponent<Animator>();
+        string skinName = PlayerPrefs.GetString("skin");
+
+        if (skinName == "Biker")
+        {
+            animPlayer.runtimeAnimatorController = animBiker;
+        }
+        if (skinName == "Punk")
+        {
+            animPlayer.runtimeAnimatorController = animPunk;
         }
     }
 }
