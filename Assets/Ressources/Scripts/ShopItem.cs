@@ -72,11 +72,12 @@ public class ShopItem : MonoBehaviour
                 textAcquis.SetActive(true);
             }
 
-        } else
+        } 
+        if (PlayerPrefs.GetInt("skin" + name) == 1)
         {
             changePlayerAnimator();
         }
-        Debug.Log(GameManager.skin);
+
     }
 
     public void changePlayerAnimator()
@@ -96,6 +97,5 @@ public class ShopItem : MonoBehaviour
         imageBackground.color = Color.white;
 
         PlayerPrefs.SetString("skin", nameOfItem);
-        Debug.Log(GameManager.skin);
     }
 }
