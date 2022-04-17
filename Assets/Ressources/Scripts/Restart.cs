@@ -8,7 +8,7 @@ public class Restart : MonoBehaviour
     public GameObject player;
     private Animator playerAnim;
 
-    private string gameIDandroid = "4707015";
+
 
     public void RestartGame()
     {
@@ -20,6 +20,13 @@ public class Restart : MonoBehaviour
 
     public void PubReplay()
     {
+
+        GameObject[] allProjectile = GameObject.FindGameObjectsWithTag("Projectile");
+        foreach (GameObject p in allProjectile)
+        {
+            Destroy(p);
+        }
+
         BoxCollider2D boxCollider2D = player.GetComponent<BoxCollider2D>();
         UIManager uimanager = GetComponent<UIManager>();
         uimanager.ClosePause();
@@ -27,7 +34,7 @@ public class Restart : MonoBehaviour
         player.transform.position += new Vector3(0, 1, 0); 
         boxCollider2D.size = new Vector2(0.6f, 0.9f);
         GameManager.isGameOver = false;
-        GameManager.isGameStart = true;
+        GameManager.isGameStart = false;
         btnPub.SetActive(false);
         playerAnim = player.GetComponent<Animator>();
         playerAnim.SetBool("Jump", false);
