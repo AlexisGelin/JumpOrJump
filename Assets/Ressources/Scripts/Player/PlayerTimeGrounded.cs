@@ -57,12 +57,11 @@ public class PlayerTimeGrounded : MonoBehaviour
             cooldownJump.fontSize = 300;
         }
 
-
-
         if (_time == 0)
         {
             GameManager.GameOver();
         }
+
     }
 
     IEnumerator Timer()
