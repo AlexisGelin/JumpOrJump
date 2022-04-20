@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using GooglePlayGames;
+using UnityEngine.SocialPlatforms;
 
 public class UIManager : MonoBehaviour
 {
@@ -78,6 +80,11 @@ public class UIManager : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
+    }
+
+    public void ShowLeaderboards()
+    {
+        Social.ShowLeaderboardUI();
     }
 
 
