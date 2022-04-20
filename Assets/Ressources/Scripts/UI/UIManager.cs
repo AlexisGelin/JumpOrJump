@@ -24,6 +24,8 @@ public class UIManager : MonoBehaviour
         PlayUI.SetActive(false);
         GameOverMenu.SetActive(false);
         moneyGO.SetActive(true);
+        GameManager.money = PlayerPrefs.GetInt("Money");
+
     }
 
     private void Update()
@@ -41,8 +43,7 @@ public class UIManager : MonoBehaviour
             PlayUI.SetActive(true);
             moneyGO.SetActive(true);
         }
-        int money = PlayerPrefs.GetInt("Money");
-        moneyText.text = money.ToString();
+        moneyText.text = GameManager.money.ToString();
     }
 
     public void SetActive(GameObject obj)

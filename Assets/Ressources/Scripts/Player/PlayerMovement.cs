@@ -27,6 +27,9 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField]
     private RuntimeAnimatorController animPunk;
+
+    [SerializeField]
+    private RuntimeAnimatorController animCyborg;
     // Start is called before the first frame update
     void Start()
     {
@@ -117,6 +120,10 @@ public class PlayerMovement : MonoBehaviour
         if (skinName == "Punk")
         {
             animPlayer.runtimeAnimatorController = animPunk;
+        }
+        if (skinName == "Cyborg")
+        {
+            animPlayer.runtimeAnimatorController = animCyborg;
         }
     }
 

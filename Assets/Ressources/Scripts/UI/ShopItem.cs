@@ -27,7 +27,6 @@ public class ShopItem : MonoBehaviour
             changePlayerAnimator();
         }
 
-
         if (GameManager.skin == nameOfItem)
         {
             imageBackground.color = Color.white;
@@ -38,9 +37,6 @@ public class ShopItem : MonoBehaviour
             textPrice.SetActive(false);
             textAcquis.SetActive(true);
         }
-
-
-
     }
 
     public void buyPlayerAnimator()
@@ -84,6 +80,7 @@ public class ShopItem : MonoBehaviour
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         Animator animPlayer = player.GetComponent<Animator>();
+
         animPlayer.runtimeAnimatorController = animOfTheItem;
         GameManager.skin = nameOfItem;
 
@@ -97,5 +94,6 @@ public class ShopItem : MonoBehaviour
         imageBackground.color = Color.white;
 
         PlayerPrefs.SetString("skin", nameOfItem);
+        Debug.Log(nameOfItem);
     }
 }

@@ -20,7 +20,7 @@ public class DeployProj : MonoBehaviour
         spawnPosition = new Vector2(gameObject.transform.position.x, gameObject.transform.position.y);
         StartCoroutine(projWave());
 
-        float difficultySpawnProj = 1f - ScoreScript.score / 100;
+        float difficultySpawnProj = 1f - ScoreScript.score / 100; // A revoir
         if (difficultySpawnProj <= respawnTime + 0.2f)
         {
             difficultySpawnProj = respawnTime + 0.2f;
@@ -30,7 +30,8 @@ public class DeployProj : MonoBehaviour
 
     private void SpawnProjectile()
     {
-        int choice = Random.Range(0, projectilePrefab.Length);
+        int choice = SelectProj();
+
         if (!GameManager.isGameStart || GameManager.isGameOver)
         {
             return;
@@ -54,6 +55,24 @@ public class DeployProj : MonoBehaviour
 
     }
 
+    private int SelectProj()
+    {
+        int choice;
+        if (ScoreScript.score <= 20)
+        {
+            choice = Random.Range(0, 1);
+        }
+        else if (ScoreScript.score <= 50)
+        {
+            choice = Random.Range(0, 2);
+        }
+        else
+        {
+            choice = Random.Range(0, 3);
+        }
+        return choice;
+    }
+
     IEnumerator TheProj(Vector2 pos,int choice)
     {
         yield return new WaitForSeconds(1f);
@@ -69,4 +88,7 @@ public class DeployProj : MonoBehaviour
             SpawnProjectile();
         }
     }
+
+
+
 }

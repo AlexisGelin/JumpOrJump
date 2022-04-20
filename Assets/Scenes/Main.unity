@@ -1204,6 +1204,7 @@ MonoBehaviour:
   SettingsMenu: {fileID: 1391943064}
   PauseMenu: {fileID: 982804586}
   moneyGO: {fileID: 1498118195}
+  money: 500
   moneyText: {fileID: 622845966}
 --- !u!4 &228096318
 Transform:
@@ -3753,6 +3754,10 @@ PrefabInstance:
       propertyPath: animBiker
       value: 
       objectReference: {fileID: 9100000, guid: 2154c1d9a7ce21b49aaeb95b303c5059, type: 2}
+    - target: {fileID: 3062585722106988806, guid: aa8854e55afc6b04b813b1c8793a3185, type: 3}
+      propertyPath: animCyborg
+      value: 
+      objectReference: {fileID: 9100000, guid: 9dbbf3d907f77e0468747149c166e194, type: 2}
     - target: {fileID: 3062585722106988812, guid: aa8854e55afc6b04b813b1c8793a3185, type: 3}
       propertyPath: m_Name
       value: Player
